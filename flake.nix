@@ -9,30 +9,33 @@
     darwin.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = { self, 
-              nixpkgs,
-              home-manager,
-              darwin
-            } @ flakes:
-  let
-    # let binding area
-  in
-  {
+  outputs =
+    { self
+    , nixpkgs
+    , home-manager
+    , darwin
+    } @ flakes:
+    let
+      # let binding area
+    in
+    {
+      formatter.aarch64-darwin = nixpkgs.legacyPackages.aarch64-darwin.nixpkgs-fmt;
+      darwinConfigurations."JJP4G" = darwin.lib.darwinSystem {
 
-    darwinConfigurations."JJP4G" = darwin.lib.darwinSystem {
-      
-      system = "aarch64-darwin";
-      modules = [ 
-        ({
-          system.configurationRevision = self.rev or self.dirtyRev or null;
-        })
-        #home-manager.darwinModules.home-manager
-        ./jjp4g/default.nix 
-      ];
-      specialArgs = { inherit flakes; };
+        system = "aarch64-darwin";
+        modules = [
+          ({
+            system.configurationRevision =
+              if self ? rev
+              then self.rev
+              else "DIRTY";
+          })
+          ./jjp4g/default.nix
+        ];
+        specialArgs = { inherit flakes; };
+      };
+
+      # Expose the package set, including overlays, for convenience.
+      # darwinPackages = self.darwinConfigurations."JJP4G".pkgs;
     };
-
-    # Expose the package set, including overlays, for convenience.
-    # darwinPackages = self.darwinConfigurations."JJP4G".pkgs;
-  };
 }
