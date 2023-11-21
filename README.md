@@ -3,3 +3,5 @@ nix --extra-experimental-features flakes --extra-experimental-features nix-comma
 
 Subsequent times:
 darwin-rebuild switch --flake ~/.config/nix-darwin
+or
+darwin-rebuild build --flake .#JJP4G 

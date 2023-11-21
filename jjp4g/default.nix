@@ -1,4 +1,4 @@
-{ pkgs, self, ... }:
+{ pkgs, self, flakes, ... }:
 {
 
   imports =
@@ -10,7 +10,9 @@
   # List packages installed in system profile. To search by name, run:
       # $ nix-env -qaP | grep wget
       environment.systemPackages =
-        [ pkgs.vim
+        [ 
+          pkgs.vim
+          pkgs.hello
         ];
 
       # Auto upgrade nix package and the daemon service.
