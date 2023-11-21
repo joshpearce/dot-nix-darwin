@@ -3,6 +3,7 @@
 
   imports =
     [
+      ./nix.nix
       ./users.nix
       ./home.nix
     ];
@@ -13,7 +14,6 @@
   ];
 
   services.nix-daemon.enable = true;
-  nix.settings.experimental-features = "nix-command flakes";
 
   programs.zsh.enable = true; 
   # removed /etc/zshrc and /etc/zprofile, let nix create them, and added:
