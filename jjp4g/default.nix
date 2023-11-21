@@ -4,6 +4,7 @@
   imports =
     [ 
       ./users.nix
+      ./home.nix
     ];
 
   # List packages installed in system profile. To search by name, run:
