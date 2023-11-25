@@ -14,4 +14,5 @@ ls /run/current-system/sw/bin/
 
 # REPL
 nix --extra-experimental-features repl-flake repl ".#darwinConfigurations.JJP4G"
-:lf . 
+
+nix-repl> :lf .
