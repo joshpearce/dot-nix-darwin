@@ -1,13 +1,17 @@
-First time:
+# First time:
 nix --extra-experimental-features flakes --extra-experimental-features nix-command run nix-darwin -- switch --flake ~/.config/nix-darwin
 
-Subsequent times:
+# Subsequent times:
 darwin-rebuild switch --flake ~/.config/nix-darwin
 or
-darwin-rebuild build --flake .#JJP4G 
+darwin-rebuild switch --flake .#JJP4G 
 
-Where is stuff installed?
+# Where is stuff installed?
 ls /run/current-system/sw/bin/
 
-Original zsh configs are in:
+# Original zsh configs are in:
 /System/Library/Templates/Data/private/etc
+
+# REPL
+nix --extra-experimental-features repl-flake repl ".#darwinConfigurations.JJP4G"
+:lf . 

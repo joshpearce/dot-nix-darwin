@@ -9,9 +9,14 @@
     ];
 
 
-  environment.systemPackages = with pkgs; [
-    nixpkgs-fmt
-  ];
+  environment = {
+    systemPackages = with pkgs; [
+      nixpkgs-fmt
+    ];
+    postBuild = ''
+      ln -sv ${pkgs.path} $out/nixpkgs
+    '';
+  };
 
   services.nix-daemon.enable = true;
 
