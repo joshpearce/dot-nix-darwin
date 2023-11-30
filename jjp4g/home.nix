@@ -11,13 +11,17 @@
     useGlobalPkgs = true;
     useUserPackages = true;
     users.josh = { pkgs, ... }: {
-        home.username = "josh";
-        home.homeDirectory = "/Users/josh";
-        home.stateVersion = "23.05";
-        home.packages = with pkgs; [ 
-          git-crypt
-          speedtest-cli
-        ];
+      imports = [
+        ../home-python.nix
+      ];
+      home.username = "josh";
+      home.homeDirectory = "/Users/josh";
+      home.stateVersion = "23.05";
+      home.packages = with pkgs; [ 
+        git-crypt
+        speedtest-cli
+        
+      ];
     };
   };
 }
