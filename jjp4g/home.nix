@@ -12,7 +12,7 @@
     useUserPackages = true;
     users.josh = { pkgs, ... }: {
       imports = [
-        ../home-python.nix
+        
       ];
       home.username = "josh";
       home.homeDirectory = "/Users/josh";
