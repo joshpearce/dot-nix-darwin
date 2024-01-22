@@ -1,4 +1,9 @@
-{ pkgs, flakes, ... }:
+{ 
+  pkgs, 
+  flakes, 
+  system,
+  ... 
+}:
 
 {
 
@@ -20,13 +25,16 @@
       home.packages = with pkgs; [ 
         git-crypt
         speedtest-cli
-        
+        flakes.deploy-flake.packages.${system}.deploy-flake
       ];
       programs.direnv = {
         enable = true;
         enableZshIntegration = true;
         nix-direnv.enable = true;
       };
+
+      home.file.".zprofile".source = ./.zprofile;
+
     };
   };
 }

@@ -7,6 +7,8 @@
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     darwin.url = "github:lnl7/nix-darwin";
     darwin.inputs.nixpkgs.follows = "nixpkgs";
+    deploy-flake.url = "github:boinkor-net/deploy-flake";
+    deploy-flake.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs =
@@ -14,15 +16,16 @@
     , nixpkgs
     , home-manager
     , darwin
+    , deploy-flake
     } @ flakes:
     let
-      # let binding area
+      darwinSystem = "aarch64-darwin";
     in
     {
       formatter.aarch64-darwin = nixpkgs.legacyPackages.aarch64-darwin.nixpkgs-fmt;
       darwinConfigurations."JJP4G" = darwin.lib.darwinSystem {
 
-        system = "aarch64-darwin";
+        system = "${darwinSystem}";
         modules = [
           ({
             system.configurationRevision =
@@ -32,7 +35,7 @@
           })
           ./jjp4g/default.nix
         ];
-        specialArgs = { inherit flakes; };
+        specialArgs = { inherit flakes; system = darwinSystem; };
       };
 
       # Expose the package set, including overlays, for convenience.
