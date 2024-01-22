@@ -33,7 +33,19 @@
         nix-direnv.enable = true;
       };
 
+      programs.git = {
+        enable = true;
+        userName = "Josh Pearce";
+        userEmail = "joshua.pearce@gmail.com";
+        extraConfig = {
+          credential.cacheOptions = "--timeout 30";
+          init.defaultBranch = "main";
+        };
+
+      };
+
       home.file.".zprofile".source = ./.zprofile;
+      home.file.".zshrc".source = ./.zshrc;
 
     };
   };
