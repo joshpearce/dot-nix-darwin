@@ -9,6 +9,8 @@
     darwin.inputs.nixpkgs.follows = "nixpkgs";
     deploy-flake.url = "github:boinkor-net/deploy-flake";
     deploy-flake.inputs.nixpkgs.follows = "nixpkgs";
+    nix-homebrew.url = "github:zhaofengli-wip/nix-homebrew";
+    nix-homebrew.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs =

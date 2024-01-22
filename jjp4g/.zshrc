@@ -123,9 +123,9 @@ alias gits='git status -bs'
 alias tf="terraform"
 
 # Mac Ports
-port() { sudo /opt/sudoport "$@"; }; 
+# port() { sudo /opt/sudoport "$@"; }; 
 
 # Brew
-brew() { sudo /opt/sudobrew "$@"; }
+# brew() { sudo /opt/sudobrew "$@"; }
 
 alias newpass='openssl rand -base64 14'

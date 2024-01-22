@@ -1,4 +1,4 @@
-{ pkgs, self, flakes, ... }:
+{ pkgs, self, flakes ... }:
 {
 
   imports =
@@ -6,12 +6,14 @@
       ./nix.nix
       ./users.nix
       ./home.nix
+      ./homebrew.nix
     ];
 
 
   environment = {
     systemPackages = with pkgs; [
       nixpkgs-fmt
+      python312
     ];
     postBuild = ''
       ln -sv ${pkgs.path} $out/nixpkgs
