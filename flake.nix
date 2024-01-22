@@ -11,6 +11,14 @@
     deploy-flake.inputs.nixpkgs.follows = "nixpkgs";
     nix-homebrew.url = "github:zhaofengli-wip/nix-homebrew";
     nix-homebrew.inputs.nixpkgs.follows = "nixpkgs";
+    homebrew-core = {
+      url = "github:homebrew/homebrew-core";
+      flake = false;
+    };
+    homebrew-cask = {
+      url = "github:homebrew/homebrew-cask";
+      flake = false;
+    };
   };
 
   outputs =
@@ -19,6 +27,9 @@
     , home-manager
     , darwin
     , deploy-flake
+    , nix-homebrew
+    , homebrew-core
+    , homebrew-cask
     } @ flakes:
     let
       darwinSystem = "aarch64-darwin";

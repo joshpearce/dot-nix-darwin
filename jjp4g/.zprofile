@@ -33,4 +33,5 @@ export VAULT_ADDR='https://vault.jjpdev.com'
 # Rust
 #. "$HOME/.cargo/env"
 
+export PATH="/opt/homebrew/bin:$PATH"
 export PATH="/run/current-system/sw/bin:$PATH"
