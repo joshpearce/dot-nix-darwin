@@ -22,10 +22,12 @@
       home.username = "josh";
       home.homeDirectory = "/Users/josh";
       home.stateVersion = "23.05";
-      home.packages = with pkgs; [ 
+      home.packages = with pkgs.unstable; [ 
+        vscode
         git-crypt
         speedtest-cli
         flakes.deploy-flake.packages.${system}.deploy-flake
+        magic-wormhole
       ];
       programs.direnv = {
         enable = true;
@@ -44,9 +46,9 @@
 
       };
 
-      home.file.".zprofile".source = ./.zprofile;
-      home.file.".zshrc".source = ./.zshrc;
-
+      home.file.".zprofile".source = ./dot_files/.zprofile;
+      home.file.".zshrc".source = ./dot_files/.zshrc;
+      home.file.".aws/config".source = ./dot_files/.aws/config;
     };
   };
 }

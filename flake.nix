@@ -1,9 +1,10 @@
 {
-  description = "Example Darwin system flake";
+  description = "Darwin system flake";
 
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-23.05-darwin"; # newest version as of may 2023, probably needs to get updated in november
-    home-manager.url = "github:nix-community/home-manager/release-23.05"; # ...
+    nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-23.11-darwin";
+    nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
+    home-manager.url = "github:nix-community/home-manager/release-23.11";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     darwin.url = "github:lnl7/nix-darwin";
     darwin.inputs.nixpkgs.follows = "nixpkgs";
@@ -24,6 +25,7 @@
   outputs =
     { self
     , nixpkgs
+    , nixpkgs-unstable
     , home-manager
     , darwin
     , deploy-flake
@@ -32,13 +34,19 @@
     , homebrew-cask
     } @ flakes:
     let
-      darwinSystem = "aarch64-darwin";
+      system = "aarch64-darwin";
+      overlay-unstable = final: prev: {
+        unstable = import nixpkgs-unstable {
+          inherit system;
+          config.allowUnfree = true;
+        };
+      };
     in
     {
       formatter.aarch64-darwin = nixpkgs.legacyPackages.aarch64-darwin.nixpkgs-fmt;
       darwinConfigurations."JJP4G" = darwin.lib.darwinSystem {
 
-        system = "${darwinSystem}";
+        #system = "${system}";
         modules = [
           ({
             system.configurationRevision =
@@ -46,9 +54,12 @@
               then self.rev
               else "DIRTY";
           })
+          ({ pkgs, ... }: {
+            nixpkgs.overlays = [ overlay-unstable ];
+          })
           ./jjp4g/default.nix
         ];
-        specialArgs = { inherit flakes; system = darwinSystem; };
+        specialArgs = { inherit flakes; inherit system; };
       };
 
       # Expose the package set, including overlays, for convenience.

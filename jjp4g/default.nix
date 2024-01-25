@@ -43,12 +43,29 @@
     brews = [
       "hugo"
     ];
+    casks = [
+      "1password"
+      "1password-cli"
+      "balenaetcher"
+      "calibre"
+      "firefox"
+      "kdiff3"
+      "secretive"
+    ];
+    masApps = {
+      "tailscale" = 1475387142;
+      "discovery_dns_sd_browser" = 1381004916;
+    };
   };
 
   environment = {
-    systemPackages = with pkgs; [
+    systemPackages = with pkgs.unstable; [
       nixpkgs-fmt
       python312
+      mas
+      awscli2
+      aws-vault
+      yubikey-manager
     ];
     postBuild = ''
       ln -sv ${pkgs.path} $out/nixpkgs
