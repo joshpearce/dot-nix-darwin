@@ -51,6 +51,8 @@
       "firefox"
       "kdiff3"
       "secretive"
+      "wireshark"
+      "pgadmin4"
     ];
     masApps = {
       "tailscale" = 1475387142;

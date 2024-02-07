@@ -28,6 +28,10 @@
         speedtest-cli
         flakes.deploy-flake.packages.${system}.deploy-flake
         magic-wormhole
+        clickhouse
+        tailscale
+        cmatrix
+        miniserve
       ];
       programs.direnv = {
         enable = true;
@@ -42,6 +46,9 @@
         extraConfig = {
           credential.cacheOptions = "--timeout 30";
           init.defaultBranch = "main";
+          alias = {
+            up = ''!if x="$(git rev-parse --is-inside-work-tree 2>/dev/null)"; then git remote update -p; if [ "$x" = true ]; then git merge --ff-only @{u}; else echo >&2 'git-up: not updating work tree in bare repo'; fi; else echo >&2 'git-up: not inside a git repo'; false; fi; #'';
+          };
         };
 
       };
