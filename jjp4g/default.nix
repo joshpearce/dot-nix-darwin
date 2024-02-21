@@ -53,6 +53,7 @@
       "secretive"
       "wireshark"
       "pgadmin4"
+      "tor-browser"
     ];
     masApps = {
       "tailscale" = 1475387142;
@@ -66,7 +67,7 @@
       python312
       mas
       awscli2
-      aws-vault
+      pkgs.aws-vault # dep xdg-user-dirs-0.18 was not available on aarch64-apple-darwin
       yubikey-manager
     ];
     postBuild = ''

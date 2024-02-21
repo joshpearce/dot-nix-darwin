@@ -32,6 +32,9 @@
         tailscale
         cmatrix
         miniserve
+        iperf2
+        spek
+        dotnet-sdk_8
       ];
       programs.direnv = {
         enable = true;
