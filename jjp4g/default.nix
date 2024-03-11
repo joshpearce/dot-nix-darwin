@@ -54,6 +54,8 @@
       "wireshark"
       "pgadmin4"
       "tor-browser"
+      "sqlitestudio"
+      "qflipper"
     ];
     masApps = {
       "tailscale" = 1475387142;
