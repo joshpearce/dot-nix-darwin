@@ -2,6 +2,7 @@
   description = "Darwin system flake";
 
   inputs = {
+    nixpkgs-jjp.url = "github:joshpearce/nixpkgs/rtl-433-update-rtl-sdr";
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-23.11-darwin";
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
     home-manager.url = "github:nix-community/home-manager/release-23.11";
@@ -26,6 +27,7 @@
     { self
     , nixpkgs
     , nixpkgs-unstable
+    , nixpkgs-jjp
     , home-manager
     , darwin
     , deploy-flake
@@ -37,6 +39,12 @@
       system = "aarch64-darwin";
       overlay-unstable = final: prev: {
         unstable = import nixpkgs-unstable {
+          inherit system;
+          config.allowUnfree = true;
+        };
+      };
+      overlay-jjp = final: prev: {
+        jjp = import nixpkgs-jjp {
           inherit system;
           config.allowUnfree = true;
         };
@@ -55,7 +63,7 @@
               else "DIRTY";
           })
           ({ pkgs, ... }: {
-            nixpkgs.overlays = [ overlay-unstable ];
+            nixpkgs.overlays = [ overlay-unstable overlay-jjp ];
           })
           ./jjp4g/default.nix
         ];

@@ -56,6 +56,8 @@
       "tor-browser"
       "sqlitestudio"
       "qflipper"
+      "gqrx"
+      "mqtt-explorer"
     ];
     masApps = {
       "tailscale" = 1475387142;
@@ -71,6 +73,7 @@
       awscli2
       pkgs.aws-vault # dep xdg-user-dirs-0.18 was not available on aarch64-apple-darwin
       yubikey-manager
+      pkgs.jjp.rtl_433
     ];
     postBuild = ''
       ln -sv ${pkgs.path} $out/nixpkgs

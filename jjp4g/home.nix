@@ -35,6 +35,8 @@
         iperf2
         spek
         dotnet-sdk_8
+        pulseview
+        jq
       ];
       programs.direnv = {
         enable = true;
