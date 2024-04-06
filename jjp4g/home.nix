@@ -37,6 +37,7 @@
         dotnet-sdk_8
         pulseview
         jq
+        yt-dlp
       ];
       programs.direnv = {
         enable = true;

@@ -74,6 +74,7 @@
       pkgs.aws-vault # dep xdg-user-dirs-0.18 was not available on aarch64-apple-darwin
       yubikey-manager
       pkgs.jjp.rtl_433
+      iperf
     ];
     postBuild = ''
       ln -sv ${pkgs.path} $out/nixpkgs
