@@ -22,12 +22,12 @@
       home.username = "josh";
       home.homeDirectory = "/Users/josh";
       home.stateVersion = "23.05";
-      home.packages = with pkgs.unstable; [ 
+      home.packages = with pkgs; [ 
         vscode
         git-crypt
         speedtest-cli
         flakes.deploy-flake.packages.${system}.deploy-flake
-        magic-wormhole
+        pkgs.stable.magic-wormhole
         clickhouse
         tailscale
         cmatrix
@@ -38,6 +38,7 @@
         pulseview
         jq
         yt-dlp
+        ipatool
       ];
       programs.direnv = {
         enable = true;

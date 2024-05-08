@@ -3,14 +3,18 @@
 
   inputs = {
     nixpkgs-jjp.url = "github:joshpearce/nixpkgs/rtl-433-update-rtl-sdr";
-    nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-23.11-darwin";
-    nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
-    home-manager.url = "github:nix-community/home-manager/release-23.11";
+    nixpkgs-stable.url = "github:NixOS/nixpkgs/nixpkgs-23.11-darwin";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+
+    home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
+
     darwin.url = "github:lnl7/nix-darwin";
     darwin.inputs.nixpkgs.follows = "nixpkgs";
+
     deploy-flake.url = "github:boinkor-net/deploy-flake";
     deploy-flake.inputs.nixpkgs.follows = "nixpkgs";
+
     nix-homebrew.url = "github:zhaofengli-wip/nix-homebrew";
     nix-homebrew.inputs.nixpkgs.follows = "nixpkgs";
     homebrew-core = {
@@ -26,7 +30,7 @@
   outputs =
     { self
     , nixpkgs
-    , nixpkgs-unstable
+    , nixpkgs-stable
     , nixpkgs-jjp
     , home-manager
     , darwin
@@ -37,8 +41,8 @@
     } @ flakes:
     let
       system = "aarch64-darwin";
-      overlay-unstable = final: prev: {
-        unstable = import nixpkgs-unstable {
+      overlay-stable = final: prev: {
+        stable = import nixpkgs-stable {
           inherit system;
           config.allowUnfree = true;
         };
@@ -63,7 +67,7 @@
               else "DIRTY";
           })
           ({ pkgs, ... }: {
-            nixpkgs.overlays = [ overlay-unstable overlay-jjp ];
+            nixpkgs.overlays = [ overlay-stable overlay-jjp ];
           })
           ./jjp4g/default.nix
         ];

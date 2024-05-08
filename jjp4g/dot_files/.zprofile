@@ -31,7 +31,7 @@ export VAULT_ADDR='https://vault.jjpdev.com'
 # export GOPATH=/Users/josh/.go
 
 # Rust
-#. "$HOME/.cargo/env"
+. "$HOME/.cargo/env"
 
 export PATH="/opt/homebrew/bin:$PATH"
 export PATH="/run/current-system/sw/bin:$PATH"

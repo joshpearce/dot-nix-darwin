@@ -8,6 +8,7 @@
       ./users.nix
       ./home.nix
       flakes.nix-homebrew.darwinModules.nix-homebrew
+      ./userLaunchAgents
     ];
 
   users = {
@@ -42,6 +43,9 @@
     enable = true;
     brews = [
       "hugo"
+      "stlink"
+      "libiconv"
+      "hidapi"
     ];
     casks = [
       "1password"
@@ -58,6 +62,8 @@
       "qflipper"
       "gqrx"
       "mqtt-explorer"
+      "moonlight"
+      "inkscape"
     ];
     masApps = {
       "tailscale" = 1475387142;
@@ -66,7 +72,7 @@
   };
 
   environment = {
-    systemPackages = with pkgs.unstable; [
+    systemPackages = with pkgs; [
       nixpkgs-fmt
       python312
       mas
@@ -75,6 +81,7 @@
       yubikey-manager
       pkgs.jjp.rtl_433
       iperf
+      runitor
     ];
     postBuild = ''
       ln -sv ${pkgs.path} $out/nixpkgs
