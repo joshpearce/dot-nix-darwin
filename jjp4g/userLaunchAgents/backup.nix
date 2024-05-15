@@ -38,11 +38,11 @@ in
                 <string>IzOqX2lVa9r4URR9Ir2NGQ</string>
             </dict>
             <key>StandardInPath</key>
-            <string>/Users/josh/josh.backup.stdin</string>
+            <string>/Users/josh/log/josh.backup.stdin</string>
             <key>StandardOutPath</key>
-            <string>/Users/josh/josh.backup.stdout</string>
+            <string>/Users/josh/log/josh.backup.stdout</string>
             <key>StandardErrorPath</key>
-            <string>/Users/josh/josh.backup.stderr</string>
+            <string>/Users/josh/log/josh.backup.stderr</string>
             <key>WorkingDirectory</key>
             <string>/Users/josh</string>
             <key>StartCalendarInterval</key>
