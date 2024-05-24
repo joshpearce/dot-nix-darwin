@@ -64,6 +64,7 @@
       "mqtt-explorer"
       "moonlight"
       "inkscape"
+      "dbeaver-community"
     ];
     masApps = {
       "tailscale" = 1475387142;
@@ -75,6 +76,7 @@
     systemPackages = with pkgs; [
       nixpkgs-fmt
       python312
+      python312Packages.pip
       mas
       awscli2
       pkgs.aws-vault # dep xdg-user-dirs-0.18 was not available on aarch64-apple-darwin

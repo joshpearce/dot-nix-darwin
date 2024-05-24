@@ -39,6 +39,7 @@
         jq
         yt-dlp
         ipatool
+        lazygit
       ];
       programs.direnv = {
         enable = true;
