@@ -9,6 +9,7 @@ let
     ${rsync} -v -a -e "ssh -F none -i $HOME/.ssh/nas" "/Users/josh/.zshrc" josh@nas.jjpdev.com:/share/backup/JJP4G/home/
     ${rsync} -v -a -e "ssh -F none -i $HOME/.ssh/nas" "/Users/josh/.age" josh@nas.jjpdev.com:/share/backup/JJP4G/home/
     ${rsync} -v -a -e "ssh -F none -i $HOME/.ssh/nas" "/Users/josh/code" josh@nas.jjpdev.com:/share/backup/JJP4G/home/
+    ${rsync} -v -a -e "ssh -F none -i $HOME/.ssh/nas" "/Users/josh/track-docs" josh@nas.jjpdev.com:/share/backup/JJP4G/home/
     ${rsync} -v -a -e "ssh -F none -i $HOME/.ssh/nas" "/Users/josh/Library/Containers/com.microsoft.onenote.mac/Data/Library/Application Support/Microsoft User Data/OneNote/15.0/Backup" josh@nas.jjpdev.com:/share/backup/JJP4G/OneNote/Backup/
   '')}/bin/josh-backup-script";
 in
