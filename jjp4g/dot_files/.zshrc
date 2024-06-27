@@ -66,7 +66,7 @@ setopt no_beep               # no beeping at all
 ### zshparam(1)
 HISTSIZE=2000
 SAVEHIST=2000
-HISTFILE="~/.zhistory"
+HISTFILE="$HOME/.zhistory"
 HISTORY_IGNORE='(cd(| -| ..)|ls|pwd|bg|fg|clear|mount)'
 DIRSTACKSIZE=32              # limit number of dirs kept in stack so it doesn't get unwieldy
 WORDCHARS=${WORDCHARS:s,/,,} # Remove '/' from WORDCHARS so path components are treated like words.

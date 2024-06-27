@@ -40,6 +40,8 @@
         yt-dlp
         ipatool
         lazygit
+        kubectl
+        fluxcd
       ];
       programs.direnv = {
         enable = true;
