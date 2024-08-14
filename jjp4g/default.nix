@@ -65,6 +65,7 @@
       "moonlight"
       "inkscape"
       "dbeaver-community"
+      "openscad"
     ];
     masApps = {
       "tailscale" = 1475387142;

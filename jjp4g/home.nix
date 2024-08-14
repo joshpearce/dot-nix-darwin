@@ -42,6 +42,10 @@
         lazygit
         kubectl
         fluxcd
+        ripgrep
+        yq-go
+        kubernetes-helm
+        fq
       ];
       programs.direnv = {
         enable = true;
