@@ -120,7 +120,7 @@ fpath+=~/.zfunc
 
 # alises
 alias gits='git status -bs'
-alias tf="terraform"
+alias tf="tofu"
 
 # Mac Ports
 # port() { sudo /opt/sudoport "$@"; }; 

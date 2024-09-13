@@ -46,6 +46,8 @@
       "stlink"
       "libiconv"
       "hidapi"
+      "r"
+      "opentofu"
     ];
     casks = [
       "1password"
@@ -66,6 +68,8 @@
       "inkscape"
       "dbeaver-community"
       "openscad"
+      "vlc"
+      "rstudio"
     ];
     masApps = {
       "tailscale" = 1475387142;
@@ -86,7 +90,7 @@
       iperf
       runitor
     ];
-    postBuild = ''
+    extraSetup = ''
       ln -sv ${pkgs.path} $out/nixpkgs
     '';
   };
