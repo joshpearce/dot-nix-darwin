@@ -48,6 +48,9 @@
       "hidapi"
       "r"
       "opentofu"
+      "tflint"
+      "terraform"
+      "go"
     ];
     casks = [
       "1password"
@@ -70,6 +73,7 @@
       "openscad"
       "vlc"
       "rstudio"
+      "insomnia"
     ];
     masApps = {
       "tailscale" = 1475387142;
