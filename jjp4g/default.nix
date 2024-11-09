@@ -74,6 +74,7 @@
       "vlc"
       "rstudio"
       "insomnia"
+      "google-cloud-sdk"
     ];
     masApps = {
       "tailscale" = 1475387142;
