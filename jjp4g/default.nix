@@ -51,6 +51,7 @@
       "tflint"
       "terraform"
       "go"
+      "age"
     ];
     casks = [
       "1password"
@@ -75,6 +76,7 @@
       "rstudio"
       "insomnia"
       "google-cloud-sdk"
+      "zoom"
     ];
     masApps = {
       "tailscale" = 1475387142;
@@ -85,8 +87,8 @@
   environment = {
     systemPackages = with pkgs; [
       nixpkgs-fmt
-      python312
-      python312Packages.pip
+      python313
+      python313Packages.pip
       mas
       awscli2
       pkgs.aws-vault # dep xdg-user-dirs-0.18 was not available on aarch64-apple-darwin
