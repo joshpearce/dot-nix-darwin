@@ -1,4 +1,4 @@
-{ pkgs, self, flakes, ... }:
+{ config, pkgs, self, flakes, ... }:
 
 {
 
@@ -9,6 +9,8 @@
       ./home.nix
       flakes.nix-homebrew.darwinModules.nix-homebrew
       ./userLaunchAgents
+      flakes.agenix.darwinModules.default
+      ../secrets/jjp4g.nix
     ];
 
   users = {
@@ -52,6 +54,7 @@
       "terraform"
       "go"
       "age"
+      "python3"
     ];
     casks = [
       "1password"
@@ -87,8 +90,6 @@
   environment = {
     systemPackages = with pkgs; [
       nixpkgs-fmt
-      python313
-      python313Packages.pip
       mas
       awscli2
       pkgs.aws-vault # dep xdg-user-dirs-0.18 was not available on aarch64-apple-darwin
@@ -96,10 +97,17 @@
       pkgs.jjp.rtl_433
       iperf
       runitor
+      flakes.agenix.packages.aarch64-darwin.default
     ];
     extraSetup = ''
       ln -sv ${pkgs.path} $out/nixpkgs
     '';
+  };
+
+  fileSystems."/Volumes/Calibre" = {
+    device = "//nas.jjpdev.com/calibre";
+    fsType = "smbfs";
+    options = [ "credentials=${config.age.secrets.calibre-smb-credentials.path}" "rw" ];
   };
 
   services.nix-daemon.enable = true;

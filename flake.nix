@@ -3,7 +3,7 @@
 
   inputs = {
     nixpkgs-jjp.url = "github:joshpearce/nixpkgs/rtl-433-update-rtl-sdr";
-    nixpkgs-stable.url = "github:NixOS/nixpkgs/nixpkgs-23.11-darwin";
+    nixpkgs-stable.url = "github:NixOS/nixpkgs/nixpkgs-24.11-darwin";
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
 
     home-manager.url = "github:nix-community/home-manager";
@@ -17,6 +17,10 @@
 
     nix-homebrew.url = "github:zhaofengli-wip/nix-homebrew";
     nix-homebrew.inputs.nixpkgs.follows = "nixpkgs";
+
+    agenix.url = "github:ryantm/agenix";
+    agenix.inputs.nixpkgs.follows = "nixpkgs";
+
     homebrew-core = {
       url = "github:homebrew/homebrew-core";
       flake = false;
@@ -38,6 +42,7 @@
     , nix-homebrew
     , homebrew-core
     , homebrew-cask
+    , agenix
     } @ flakes:
     let
       system = "aarch64-darwin";
