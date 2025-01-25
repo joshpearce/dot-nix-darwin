@@ -104,12 +104,6 @@
     '';
   };
 
-  fileSystems."/Volumes/Calibre" = {
-    device = "//nas.jjpdev.com/calibre";
-    fsType = "smbfs";
-    options = [ "credentials=${config.age.secrets.calibre-smb-credentials.path}" "rw" ];
-  };
-
   services.nix-daemon.enable = true;
 
   programs.zsh.enable = true;
