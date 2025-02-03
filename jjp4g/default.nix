@@ -96,7 +96,6 @@
       yubikey-manager
       pkgs.jjp.rtl_433
       iperf
-      runitor
       flakes.agenix.packages.aarch64-darwin.default
     ];
     extraSetup = ''
