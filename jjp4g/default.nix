@@ -80,6 +80,7 @@
       "insomnia"
       "google-cloud-sdk"
       "zoom"
+      "texmaker"
     ];
     masApps = {
       "tailscale" = 1475387142;

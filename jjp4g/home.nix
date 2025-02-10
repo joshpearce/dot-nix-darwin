@@ -35,7 +35,7 @@
         iperf2
         spek
         dotnet-sdk_8
-        pulseview
+        #pulseview
         jq
         yt-dlp
         ipatool
@@ -46,6 +46,7 @@
         yq-go
         kubernetes-helm
         fq
+        texliveTeTeX
       ];
       programs.direnv = {
         enable = true;
