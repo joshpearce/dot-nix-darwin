@@ -55,6 +55,9 @@
       "go"
       "age"
       "python3"
+      "podman"
+      "skopeo"
+      "flyctl"
     ];
     casks = [
       "1password"
