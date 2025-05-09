@@ -58,6 +58,9 @@
       "podman"
       "skopeo"
       "flyctl"
+      "gh"
+      "probe-rs-tools"
+      "ffmpeg"
     ];
     casks = [
       "1password"
@@ -84,6 +87,7 @@
       "google-cloud-sdk"
       "zoom"
       "texmaker"
+      "kicad"
     ];
     masApps = {
       "tailscale" = 1475387142;
@@ -106,8 +110,6 @@
       ln -sv ${pkgs.path} $out/nixpkgs
     '';
   };
-
-  services.nix-daemon.enable = true;
 
   programs.zsh.enable = true;
   # removed /etc/zshrc and /etc/zprofile, let nix create them, and added:
