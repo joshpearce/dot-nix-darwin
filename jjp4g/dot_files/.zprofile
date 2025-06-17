@@ -25,7 +25,7 @@ export VAULT_ADDR='https://vault.jjpdev.com'
 
 # port() { sudo /opt/sudoport "$@"; }; export PATH="/opt/local/sudobin:/opt/local/bin:/opt/local/sbin:$PATH"
 # Add Visual Studio Code (code)
-# export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
+export PATH="/Applications/Visual Studio Code.app/Contents/Resources/app/bin:$PATH"
 
 # Golang
 # export GOPATH=/Users/josh/.go

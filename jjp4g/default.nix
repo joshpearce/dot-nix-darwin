@@ -54,13 +54,15 @@
       "terraform"
       "go"
       "age"
-      "python3"
       "podman"
       "skopeo"
       "flyctl"
       "gh"
       "probe-rs-tools"
       "ffmpeg"
+      "node"
+      "esptool"
+      "uv"
     ];
     casks = [
       "1password"
@@ -88,6 +90,8 @@
       "zoom"
       "texmaker"
       "kicad"
+      "visual-studio-code"
+      "zed"
     ];
     masApps = {
       "tailscale" = 1475387142;

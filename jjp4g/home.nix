@@ -23,7 +23,6 @@
       home.homeDirectory = "/Users/josh";
       home.stateVersion = "23.05";
       home.packages = with pkgs; [ 
-        vscode
         git-crypt
         speedtest-cli
         flakes.deploy-flake.packages.${system}.deploy-flake
