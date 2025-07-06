@@ -43,6 +43,11 @@
 
   homebrew = {
     enable = true;
+    onActivation = {
+      autoUpdate = true;
+      cleanup = "zap";
+      upgrade = true;
+    };
     brews = [
       "hugo"
       "stlink"
@@ -63,6 +68,7 @@
       "node"
       "esptool"
       "uv"
+      "libgit2"
     ];
     casks = [
       "1password"
@@ -79,7 +85,6 @@
       "qflipper"
       "gqrx"
       "mqtt-explorer"
-      "moonlight"
       "inkscape"
       "dbeaver-community"
       "openscad"
@@ -91,7 +96,8 @@
       "texmaker"
       "kicad"
       "visual-studio-code"
-      "zed"
+      "positron"
+      "block-goose"
     ];
     masApps = {
       "tailscale" = 1475387142;

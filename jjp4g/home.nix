@@ -46,6 +46,7 @@
         kubernetes-helm
         fq
         texliveTeTeX
+        ollama
       ];
       programs.direnv = {
         enable = true;
