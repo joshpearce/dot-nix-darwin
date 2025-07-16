@@ -71,6 +71,7 @@
       "libgit2"
       "imagemagick"
       "socat"
+      "tokei"
     ];
     casks = [
       "1password"
@@ -80,7 +81,7 @@
       "firefox"
       "kdiff3"
       "secretive"
-      "wireshark"
+      #"wireshark"
       "pgadmin4"
       "tor-browser"
       "sqlitestudio"
@@ -93,7 +94,7 @@
       "vlc"
       "rstudio"
       "insomnia"
-      "google-cloud-sdk"
+      #"google-cloud-sdk"
       "zoom"
       "texmaker"
       "kicad"
