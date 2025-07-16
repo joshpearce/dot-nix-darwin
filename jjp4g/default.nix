@@ -69,6 +69,8 @@
       "esptool"
       "uv"
       "libgit2"
+      "imagemagick"
+      "socat"
     ];
     casks = [
       "1password"
@@ -98,6 +100,8 @@
       "visual-studio-code"
       "positron"
       "block-goose"
+      "utm"
+      "context"
     ];
     masApps = {
       "tailscale" = 1475387142;
@@ -112,7 +116,7 @@
       awscli2
       pkgs.aws-vault # dep xdg-user-dirs-0.18 was not available on aarch64-apple-darwin
       yubikey-manager
-      pkgs.jjp.rtl_433
+      #pkgs.rtl_433
       iperf
       flakes.agenix.packages.aarch64-darwin.default
     ];
@@ -129,6 +133,8 @@
   # Used for backwards compatibility, please read the changelog before changing.
   # $ darwin-rebuild changelog
   system.stateVersion = 4;
+
+  system.primaryUser = "josh";
 
   # The platform the configuration will be used on.
   nixpkgs.hostPlatform = "aarch64-darwin";

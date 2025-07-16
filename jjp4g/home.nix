@@ -32,7 +32,7 @@
         cmatrix
         miniserve
         iperf2
-        spek
+        #spek
         dotnet-sdk_8
         #pulseview
         jq

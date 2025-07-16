@@ -129,3 +129,11 @@ alias tf="tofu"
 # brew() { sudo /opt/sudobrew "$@"; }
 
 alias newpass='openssl rand -base64 14'
+
+# Set DOTNET_ROOT to the Nix store path
+if [[ -d /nix/store ]]; then
+  DOTNET_ROOT=$(find /nix/store -maxdepth 1 -name "*dotnet-sdk*" -type d | head -1)
+  if [[ -n "$DOTNET_ROOT" ]]; then
+    export DOTNET_ROOT="$DOTNET_ROOT"
+  fi
+fi
