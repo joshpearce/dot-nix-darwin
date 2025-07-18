@@ -47,6 +47,7 @@
         fq
         texliveTeTeX
         ollama
+        wireshark
       ];
       programs.direnv = {
         enable = true;

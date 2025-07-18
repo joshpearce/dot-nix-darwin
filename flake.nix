@@ -16,8 +16,7 @@
     deploy-flake.url = "github:boinkor-net/deploy-flake";
     deploy-flake.inputs.nixpkgs.follows = "nixpkgs";
 
-    nix-homebrew.url = "github:zhaofengli-wip/nix-homebrew";
-    #nix-homebrew.inputs.nixpkgs.follows = "nixpkgs";
+    nix-homebrew.url = "github:zhaofengli/nix-homebrew";
 
     agenix.url = "github:ryantm/agenix";
     agenix.inputs.nixpkgs.follows = "nixpkgs";
@@ -28,6 +27,10 @@
     };
     homebrew-cask = {
       url = "github:homebrew/homebrew-cask";
+      flake = false;
+    };
+    homebrew-bundle = {
+      url = "github:homebrew/homebrew-bundle";
       flake = false;
     };
   };
@@ -43,6 +46,7 @@
     , nix-homebrew
     , homebrew-core
     , homebrew-cask
+    , homebrew-bundle
     , agenix
     } @ flakes:
     let

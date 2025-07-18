@@ -37,12 +37,14 @@
     taps = {
       "homebrew/homebrew-core" = flakes.homebrew-core;
       "homebrew/homebrew-cask" = flakes.homebrew-cask;
+      "homebrew/homebrew-bundle" = flakes.homebrew-bundle;
     };
     mutableTaps = true;
   };
 
   homebrew = {
     enable = true;
+    taps = builtins.attrNames config.nix-homebrew.taps; # https://github.com/zhaofengli/nix-homebrew/issues/5
     onActivation = {
       autoUpdate = true;
       cleanup = "zap";
@@ -72,6 +74,7 @@
       "imagemagick"
       "socat"
       "tokei"
+      "gnu-tar"
     ];
     casks = [
       "1password"
@@ -81,7 +84,6 @@
       "firefox"
       "kdiff3"
       "secretive"
-      #"wireshark"
       "pgadmin4"
       "tor-browser"
       "sqlitestudio"
@@ -94,7 +96,6 @@
       "vlc"
       "rstudio"
       "insomnia"
-      #"google-cloud-sdk"
       "zoom"
       "texmaker"
       "kicad"
@@ -103,6 +104,7 @@
       "block-goose"
       "utm"
       "context"
+      "gcloud-cli"
     ];
     masApps = {
       "tailscale" = 1475387142;
