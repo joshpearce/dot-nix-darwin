@@ -33,6 +33,10 @@
       url = "github:homebrew/homebrew-bundle";
       flake = false;
     };
+    homebrew-dagger = {
+      url = "github:dagger/homebrew-tap";
+      flake = false;
+    };
   };
 
   outputs =
@@ -47,6 +51,7 @@
     , homebrew-core
     , homebrew-cask
     , homebrew-bundle
+    , homebrew-dagger
     , agenix
     } @ flakes:
     let

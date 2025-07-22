@@ -38,6 +38,7 @@
       "homebrew/homebrew-core" = flakes.homebrew-core;
       "homebrew/homebrew-cask" = flakes.homebrew-cask;
       "homebrew/homebrew-bundle" = flakes.homebrew-bundle;
+      "dagger/homebrew-tap" = flakes.homebrew-dagger;
     };
     mutableTaps = true;
   };
@@ -105,6 +106,7 @@
       "utm"
       "context"
       "gcloud-cli"
+      "container-use"
     ];
     masApps = {
       "tailscale" = 1475387142;

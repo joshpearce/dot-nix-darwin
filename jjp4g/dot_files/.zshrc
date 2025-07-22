@@ -137,3 +137,50 @@ if [[ -d /nix/store ]]; then
     export DOTNET_ROOT="$DOTNET_ROOT"
   fi
 fi
+
+
+######## CLAUDE CODE HELPERS ########################################################
+
+watch_latest_cc_bash() {
+   local dir="${1:-}"  # Store first argument, empty if not provided
+   
+   # Determine search location and find most recent .jsonl file
+   if [[ -z "$dir" ]]; then
+       # No argument provided: search recursively in default location
+       local latest_file=$(find ~/.claude/projects/ -name "*.jsonl" -type f \
+                          -exec stat -f "%m %N" {} \; 2>/dev/null | \
+                          sort -n | tail -1 | cut -d' ' -f2-)
+   else
+       # Directory argument provided: search in specified directory only
+       local latest_file=$(find "$dir" -name "*.jsonl" -type f \
+                          -exec stat -f "%m %N" {} \; 2>/dev/null | \
+                          sort -n | tail -1 | cut -d' ' -f2-)
+   fi
+   
+   # Error handling: no .jsonl files found
+   if [[ -z "$latest_file" ]]; then
+       local search_location="${dir:-~/.claude/projects/ (recursive)}"
+       echo "No .jsonl files found in $search_location" >&2
+       return 1
+   fi
+   
+   # Extract parent directory name (not full path) for output formatting
+   local parent_dir=$(basename "$(dirname "$latest_file")")
+   
+   # Inform user which file is being monitored (sent to stderr to avoid mixing with data)
+   echo "Following: $latest_file" >&2
+   
+   # Main processing pipeline:
+   # 1. tail -f: Follow file for new lines
+   # 2. jq filter: Process JSON and format output
+   tail -f "$latest_file" | jq -r --arg parent "$parent_dir" '
+       # Filter: only process lines matching our criteria
+       select(
+           (.message.content? | type) == "array" and          # content must be array
+           .message.content?[0].name? == "Bash"               # first element name is "Bash"
+       ) |
+       # Output format: timestamp, parent directory, command
+       "\(now | strftime("%Y-%m-%d %H:%M:%S")), \($parent), \(.message.content[0].input.command // "no command")"
+   '
+}
+
