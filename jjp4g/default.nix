@@ -76,6 +76,7 @@
       "socat"
       "tokei"
       "gnu-tar"
+      "pandoc"
     ];
     casks = [
       "1password"
@@ -107,6 +108,7 @@
       "context"
       "gcloud-cli"
       "container-use"
+      "container"
     ];
     masApps = {
       "tailscale" = 1475387142;
