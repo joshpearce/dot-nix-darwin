@@ -77,6 +77,7 @@
       "tokei"
       "gnu-tar"
       "pandoc"
+      "pkg-config"
     ];
     casks = [
       "1password"
