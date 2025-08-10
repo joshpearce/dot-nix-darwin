@@ -35,5 +35,5 @@ export PATH="/Applications/Visual Studio Code.app/Contents/Resources/app/bin:$PA
 
 export PATH="/opt/homebrew/bin:$PATH"
 export PATH="/run/current-system/sw/bin:$PATH"
-
+export PATH="/Users/josh/.local/bin:$PATH"
 export PATH="/Users/josh/bin:$PATH"
