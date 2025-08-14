@@ -37,6 +37,10 @@
       url = "github:dagger/homebrew-tap";
       flake = false;
     };
+    homebrew-mcptools = {
+      url = "github:f/mcptools";
+      flake = false;
+    };
   };
 
   outputs =
@@ -52,6 +56,7 @@
     , homebrew-cask
     , homebrew-bundle
     , homebrew-dagger
+    , homebrew-mcptools
     , agenix
     } @ flakes:
     let

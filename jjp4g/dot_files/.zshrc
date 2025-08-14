@@ -141,6 +141,8 @@ fi
 
 ######## CLAUDE CODE HELPERS ########################################################
 
+alias claude='/Users/josh/.claude/local/claude'
+
 watch_latest_cc_bash() {
    local dir="${1:-}"  # Store first argument, empty if not provided
    
@@ -183,4 +185,3 @@ watch_latest_cc_bash() {
        "\(now | strftime("%Y-%m-%d %H:%M:%S")), \($parent), \(.message.content[0].input.command // "no command")"
    '
 }
-

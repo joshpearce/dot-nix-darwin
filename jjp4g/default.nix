@@ -39,6 +39,7 @@
       "homebrew/homebrew-cask" = flakes.homebrew-cask;
       "homebrew/homebrew-bundle" = flakes.homebrew-bundle;
       "dagger/homebrew-tap" = flakes.homebrew-dagger;
+      "f/mcptools" = flakes.homebrew-mcptools;
     };
     mutableTaps = true;
   };
@@ -78,6 +79,7 @@
       "gnu-tar"
       "pandoc"
       "pkg-config"
+      "mcp"
     ];
     casks = [
       "1password"
