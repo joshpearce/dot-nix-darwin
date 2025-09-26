@@ -80,6 +80,7 @@
       "pandoc"
       "pkg-config"
       "mcp"
+      "poetry"
     ];
     casks = [
       "1password"

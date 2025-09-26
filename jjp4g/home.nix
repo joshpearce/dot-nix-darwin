@@ -27,7 +27,6 @@
         speedtest-cli
         flakes.deploy-flake.packages.${system}.deploy-flake
         pkgs.stable.magic-wormhole
-        clickhouse
         tailscale
         cmatrix
         miniserve
