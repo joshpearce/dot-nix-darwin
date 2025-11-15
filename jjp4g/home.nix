@@ -56,9 +56,9 @@
 
       programs.git = {
         enable = true;
-        userName = "Josh Pearce";
-        userEmail = "joshua.pearce@gmail.com";
-        extraConfig = {
+        settings = {
+          user.name = "Josh Pearce";
+          user.email = "joshua.pearce@gmail.com";
           credential.cacheOptions = "--timeout 30";
           init.defaultBranch = "main";
           alias = {

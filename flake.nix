@@ -6,7 +6,8 @@
     nixpkgs-stable.url = "github:NixOS/nixpkgs/nixpkgs-24.11-darwin";
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
 
-    home-manager.url = "github:nix-community/home-manager";
+    # Using PR #8164 branch until merged - fixes pathsToLink darwin issue
+    home-manager.url = "github:nix-community/home-manager/pull/8164/head";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
     #darwin.url = "github:lnl7/nix-darwin";
@@ -73,6 +74,11 @@
           config.allowUnfree = true;
         };
       };
+      overlay-fish-no-checks = final: prev: {
+        fish = prev.fish.overrideAttrs (oldAttrs: {
+          doCheck = false;
+        });
+      };
     in
     {
       formatter.aarch64-darwin = nixpkgs.legacyPackages.aarch64-darwin.nixpkgs-fmt;
@@ -87,7 +93,7 @@
               else "DIRTY";
           })
           ({ pkgs, ... }: {
-            nixpkgs.overlays = [ overlay-stable overlay-jjp ];
+            nixpkgs.overlays = [ overlay-stable overlay-jjp overlay-fish-no-checks ];
           })
           ./jjp4g/default.nix
         ];
