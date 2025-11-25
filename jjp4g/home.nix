@@ -45,7 +45,7 @@
         kubernetes-helm
         fq
         texliveTeTeX
-        ollama
+        #ollama  # Temporarily disabled due to build failure
         wireshark
       ];
       programs.direnv = {

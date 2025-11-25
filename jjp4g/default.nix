@@ -115,7 +115,7 @@
       "container"
     ];
     masApps = {
-      "tailscale" = 1475387142;
+      #"tailscale" = 1475387142;  # Temporarily disabled - using nix package instead
       "discovery_dns_sd_browser" = 1381004916;
     };
   };
