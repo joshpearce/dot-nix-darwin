@@ -27,7 +27,7 @@
         speedtest-cli
         flakes.deploy-flake.packages.${system}.deploy-flake
         pkgs.stable.magic-wormhole
-        tailscale
+        # tailscale
         cmatrix
         miniserve
         iperf2
