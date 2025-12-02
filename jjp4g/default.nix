@@ -40,6 +40,7 @@
       "homebrew/homebrew-bundle" = flakes.homebrew-bundle;
       "dagger/homebrew-tap" = flakes.homebrew-dagger;
       "f/mcptools" = flakes.homebrew-mcptools;
+      "steveyegge/beads" = flakes.homebrew-beads;
     };
     mutableTaps = true;
   };
@@ -81,6 +82,7 @@
       "pkg-config"
       "mcp"
       "poetry"
+      "bd"
     ];
     casks = [
       "1password"

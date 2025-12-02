@@ -6,8 +6,7 @@
     nixpkgs-stable.url = "github:NixOS/nixpkgs/nixpkgs-24.11-darwin";
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
 
-    # Using PR #8164 branch until merged - fixes pathsToLink darwin issue
-    home-manager.url = "github:nix-community/home-manager/pull/8164/head";
+    home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
     #darwin.url = "github:lnl7/nix-darwin";
@@ -42,6 +41,10 @@
       url = "github:f/mcptools";
       flake = false;
     };
+    homebrew-beads = {
+      url = "github:steveyegge/beads";
+      flake = false;
+    };
   };
 
   outputs =
@@ -58,6 +61,7 @@
     , homebrew-bundle
     , homebrew-dagger
     , homebrew-mcptools
+    , homebrew-beads
     , agenix
     } @ flakes:
     let
