@@ -39,6 +39,11 @@ export PATH="/Applications/Visual Studio Code.app/Contents/Resources/app/bin:$PA
 # Rust
 . "$HOME/.cargo/env"
 
+# Beads
+export BEADS_NO_DAEMON=1
+export BEADS_AUTO_START_DAEMON=false
+export BD_NO_AUTO_IMPORT=1
+
 export PATH="/opt/homebrew/bin:$PATH"
 export PATH="/run/current-system/sw/bin:$PATH"
 export PATH="/Users/josh/.local/bin:$PATH"
