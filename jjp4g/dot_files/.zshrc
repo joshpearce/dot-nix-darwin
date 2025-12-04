@@ -141,8 +141,6 @@ fi
 
 ######## CLAUDE CODE HELPERS ########################################################
 
-alias claude='/Users/josh/.claude/local/claude'
-
 watch_latest_cc_bash() {
    local dir="${1:-}"  # Store first argument, empty if not provided
    
