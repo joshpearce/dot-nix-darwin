@@ -109,18 +109,20 @@ function { local f; for f ($@) source $f } ~/.config/shrc/*.{z,}sh(N) ~/.zshrc.l
 # loading of completion files. If it detects a change in the number of the
 # completion files, it will regenerate the dump file. Dump file generation slows
 # down initialization time.
+
+# Rust tab completion (must be before compinit)
+fpath+=~/.zfunc
+
 autoload -Uz compinit
 mkdir -p ~/.cache
 compinit -d ~/.cache/zcompdump
 
 ######## END COMMON DOT FILE ########################################################
 
-# becuase of rust tab completion instructions
-fpath+=~/.zfunc
-
 # alises
 alias gits='git status -bs'
 alias tf="tofu"
+alias docker="podman"
 
 # Mac Ports
 # port() { sudo /opt/sudoport "$@"; }; 
@@ -130,16 +132,9 @@ alias tf="tofu"
 
 alias newpass='openssl rand -base64 14'
 
-# Set DOTNET_ROOT to the Nix store path
-if [[ -d /nix/store ]]; then
-  DOTNET_ROOT=$(find /nix/store -maxdepth 1 -name "*dotnet-sdk*" -type d | head -1)
-  if [[ -n "$DOTNET_ROOT" ]]; then
-    export DOTNET_ROOT="$DOTNET_ROOT"
-  fi
-fi
-
-
 ######## CLAUDE CODE HELPERS ########################################################
+
+alias claude='/Users/josh/.claude/local/claude'
 
 watch_latest_cc_bash() {
    local dir="${1:-}"  # Store first argument, empty if not provided
