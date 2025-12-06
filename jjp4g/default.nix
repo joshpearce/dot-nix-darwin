@@ -41,6 +41,7 @@
       "dagger/homebrew-tap" = flakes.homebrew-dagger;
       "f/mcptools" = flakes.homebrew-mcptools;
       "steveyegge/beads" = flakes.homebrew-beads;
+      "oven-sh/bun" = flakes.homebrew-bun;
     };
     mutableTaps = true;
   };
@@ -65,6 +66,7 @@
       "go"
       "age"
       "podman"
+      "podman-compose"
       "skopeo"
       "flyctl"
       "gh"
@@ -83,6 +85,8 @@
       "mcp"
       "poetry"
       "bd"
+      "bun"
+      "ccusage"
     ];
     casks = [
       "1password"
@@ -117,7 +121,6 @@
       "container"
     ];
     masApps = {
-      #"tailscale" = 1475387142;  # Temporarily disabled - using nix package instead
       "discovery_dns_sd_browser" = 1381004916;
     };
   };
@@ -148,6 +151,10 @@
   system.stateVersion = 4;
 
   system.primaryUser = "josh";
+
+  system.activationScripts.postActivation.text = ''
+    ln -sf /Applications/Tailscale.app/Contents/MacOS/Tailscale /usr/local/bin/tailscale
+  '';
 
   # The platform the configuration will be used on.
   nixpkgs.hostPlatform = "aarch64-darwin";
