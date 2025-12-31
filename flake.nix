@@ -2,7 +2,6 @@
   description = "Darwin system flake";
 
   inputs = {
-    nixpkgs-jjp.url = "github:joshpearce/nixpkgs/rtl-433-update-rtl-sdr";
     nixpkgs-stable.url = "github:NixOS/nixpkgs/nixpkgs-24.11-darwin";
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
 
@@ -55,7 +54,6 @@
     { self
     , nixpkgs
     , nixpkgs-stable
-    , nixpkgs-jjp
     , home-manager
     , darwin
     , deploy-flake
@@ -77,12 +75,7 @@
           config.allowUnfree = true;
         };
       };
-      overlay-jjp = final: prev: {
-        jjp = import nixpkgs-jjp {
-          inherit system;
-          config.allowUnfree = true;
-        };
-      };
+      # Monitor this: https://github.com/nixos/nixpkgs/issues/461406
       overlay-fish-no-checks = final: prev: {
         fish = prev.fish.overrideAttrs (oldAttrs: {
           doCheck = false;
@@ -92,8 +85,6 @@
     {
       formatter.aarch64-darwin = nixpkgs.legacyPackages.aarch64-darwin.nixpkgs-fmt;
       darwinConfigurations."JJP4G" = darwin.lib.darwinSystem {
-
-        #system = "${system}";
         modules = [
           ({
             system.configurationRevision =
@@ -102,7 +93,7 @@
               else "DIRTY";
           })
           ({ pkgs, ... }: {
-            nixpkgs.overlays = [ overlay-stable overlay-jjp overlay-fish-no-checks ];
+            nixpkgs.overlays = [ overlay-stable overlay-fish-no-checks ];
           })
           ./jjp4g/default.nix
         ];
