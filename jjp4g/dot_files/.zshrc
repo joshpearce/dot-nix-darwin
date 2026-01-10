@@ -134,8 +134,6 @@ alias newpass='openssl rand -base64 14'
 
 ######## CLAUDE CODE HELPERS ########################################################
 
-alias claude='/Users/josh/.claude/local/claude'
-
 watch_latest_cc_bash() {
    local dir="${1:-}"  # Store first argument, empty if not provided
    

@@ -40,7 +40,6 @@
       "homebrew/homebrew-bundle" = flakes.homebrew-bundle;
       "dagger/homebrew-tap" = flakes.homebrew-dagger;
       "f/mcptools" = flakes.homebrew-mcptools;
-      "steveyegge/beads" = flakes.homebrew-beads;
       "oven-sh/bun" = flakes.homebrew-bun;
     };
     mutableTaps = true;
@@ -84,7 +83,6 @@
       "pkg-config"
       "mcp"
       "poetry"
-      "bd"
       "bun"
       "ccusage"
     ];

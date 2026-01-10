@@ -40,10 +40,6 @@
       url = "github:f/mcptools";
       flake = false;
     };
-    homebrew-beads = {
-      url = "github:steveyegge/beads";
-      flake = false;
-    };
     homebrew-bun = {
       url = "github:oven-sh/homebrew-bun";
       flake = false;
@@ -63,7 +59,6 @@
     , homebrew-bundle
     , homebrew-dagger
     , homebrew-mcptools
-    , homebrew-beads
     , homebrew-bun
     , agenix
     } @ flakes:
