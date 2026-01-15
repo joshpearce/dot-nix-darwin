@@ -85,6 +85,7 @@
       "poetry"
       "bun"
       "ccusage"
+      "runitor"
     ];
     casks = [
       "1password"

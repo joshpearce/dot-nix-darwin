@@ -27,7 +27,7 @@ in
             <string>com.josh.backup</string>
             <key>ProgramArguments</key>
             <array>
-                <string>/usr/local/bin/runitor</string>
+                <string>/opt/homebrew/bin/runitor</string>
                 <string>-slug</string>
                 
                 <string>jjp4g-rsync-to-nas</string>
