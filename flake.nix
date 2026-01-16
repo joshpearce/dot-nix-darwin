@@ -44,6 +44,11 @@
       url = "github:oven-sh/homebrew-bun";
       flake = false;
     };
+
+    cc-session-mon = {
+      url = "path:/Users/josh/code/cc_session_mon";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -61,6 +66,7 @@
     , homebrew-mcptools
     , homebrew-bun
     , agenix
+    , cc-session-mon
     } @ flakes:
     let
       system = "aarch64-darwin";

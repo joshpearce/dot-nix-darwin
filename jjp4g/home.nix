@@ -26,6 +26,7 @@
         git-crypt
         speedtest-cli
         flakes.deploy-flake.packages.${system}.deploy-flake
+        flakes.cc-session-mon.packages.${system}.default
         pkgs.stable.magic-wormhole
         cmatrix
         miniserve
